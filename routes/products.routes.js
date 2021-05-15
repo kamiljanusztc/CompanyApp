@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const db = require('./../db');
 const ObjectId = require('mongodb').ObjectId;
 
 router.get('/products', (req, res) => {
