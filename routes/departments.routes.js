@@ -34,14 +34,14 @@ router.post('/departments', (req, res) => {
 
 router.put('/departments/:id', (req, res) => {
   const { name } = req.body;
-  req.db.collection('departments').updateOne({ _id: ObjectId(req.params.id) }, { $set: { name: name }}, err => {
+  req.db.collection('departments').updateOne({ '_id': 'ObjectId(req.params.id)' }, { $set: { name: name }}, err => {
     if(err) res.status(500).json({ message: err });
     else res.json({ message: 'OK' });
   });
 });
 
 router.delete('/departments/:id', (req, res) => {
-  req.db.collection('departments').deleteOne({ _id: ObjectId(req.params.id) }, err => {
+  req.db.collection('departments').deleteOne({ '_id': 'ObjectId(req.params.id)' }, err => {
     if(err) res.status(500).json({ message: err });
     else res.json({ message: 'OK' });
   });

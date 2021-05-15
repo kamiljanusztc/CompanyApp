@@ -34,14 +34,14 @@ router.post('/employees', (req, res) => {
 
 router.put('/employees/:id', (req, res) => {
   const { firstName, lastName } = req.body;
-  req.db.collection('employees').updateOne({ _id: ObjectId(req.params.id) }, { $set: { firstName: firstName, lastName: lastName }}, err => {
+  req.db.collection('employees').updateOne({ '_id': 'ObjectId(req.params.id)' }, { $set: { firstName: firstName, lastName: lastName }}, err => {
     if(err) res.status(500).json({ message: err });
     else res.json({ message: 'OK' });
   });
 });
 
 router.delete('/employees/:id', (req, res) => {
-  req.db.collection('employees').deleteOne({ _id: ObjectId(req.params.id) }, err => {
+  req.db.collection('employees').deleteOne({ '_id': 'ObjectId(req.params.id)' }, err => {
     if(err) res.status(500).json({ message: err });
     else res.json({ message: 'OK' });
   });
