@@ -34,14 +34,14 @@ router.post('/products', (req, res) => {
 
 router.put('/products/:id', (req, res) => {
   const { name, client } = req.body;
-  req.db.collection('products').updateOne({ '_id': 'ObjectId(req.params.id)' }, { $set: { name: name, client: client }}, err => {
+  req.db.collection('products').updateOne({ _id: ObjectId(req.params.id) }, { $set: { name: name, client: client }}, err => {
     if(err) res.status(500).json({ message: err });
     else res.json({ message: 'OK' });
   });
 });
 
 router.delete('/products/:id', (req, res) => {
-  req.db.collection('products').deleteOne({ '_id': 'ObjectId(req.params.id)' }, err => {
+  req.db.collection('products').deleteOne({ _id: ObjectId(req.params.id) }, err => {
     if(err) res.status(500).json({ message: err });
     else res.json({ message: 'OK' });
   });
