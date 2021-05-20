@@ -61,7 +61,6 @@ describe('Employee', () => {
   
   });
 
-
   it('should not throw an error if "firstName", "lastName" and "department" is okay', () => {
 
     const emp1 = { firstName: "Amanda", lastName: "Doe", department: "Marketing" };
