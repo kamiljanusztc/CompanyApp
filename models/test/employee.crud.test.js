@@ -20,6 +20,10 @@ describe('Employee', () => {
   
   });
 
+  after(() => {
+    mongoose.models = {};
+  });
+
   describe('Reading data', () => {
 
     beforeEach(async () => {
