@@ -10,9 +10,9 @@ describe('Employee', () => {
     try {
       const fakeDB = new MongoMemoryServer();
   
-      const uri = await fakeDB.getConnectionString();
+      const uri = await fakeDB.getUri();
   
-      mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+      await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   
     } catch(err) {
       console.log(err);
@@ -33,7 +33,7 @@ describe('Employee', () => {
       const testEmpTwo = new Employee({ firstName: 'Jonathan', lastName: 'Wilson', department: 'IT' });
       await testEmpTwo.save();
     });
-  
+    
     it('should return all the data with "find" method', async () => {
       const employees = await Employee.find();
       const expectedLength = 2;
